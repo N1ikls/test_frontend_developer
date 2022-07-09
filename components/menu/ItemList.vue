@@ -3,6 +3,7 @@
     <div v-for="(i, index) in menu" :key="index" class="list__item">
       <Item :menu="i" />
     </div>
+    <div></div>
   </div>
 </template>
 
