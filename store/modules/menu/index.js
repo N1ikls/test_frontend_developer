@@ -1,9 +1,18 @@
 export default {
   namespaced: true,
   state: {
-    menu: {},
+    menu: [],
+    editing_element: null,
   },
-  mutations: {},
+  mutations: {
+    set(state, [variable, value]) {
+      state[variable] = value
+    },
+  },
   action: {},
-  getters: {},
+  getters: {
+    menu(state) {
+      return state.menu
+    },
+  },
 }
