@@ -1,9 +1,15 @@
 <template>
-  <Tutorial />
+  <div>
+    <ItemList />
+  </div>
 </template>
 
 <script>
+import ItemList from '../components/menu/ItemList.vue'
 export default {
-  name: 'IndexPage',
+  name: 'MainLayout',
+  components: {
+    ItemList,
+  },
 }
 </script>
