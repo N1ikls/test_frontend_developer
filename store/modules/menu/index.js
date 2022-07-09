@@ -1,7 +1,14 @@
 export default {
   namespaced: true,
   state: {
-    menu: [],
+    menu: [
+      {
+        link: '',
+        title: 'dsadsa',
+        description: 'dsaadaadas',
+        price: 230,
+      },
+    ],
     editing_element: null,
   },
   mutations: {
