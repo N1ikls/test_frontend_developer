@@ -7,7 +7,7 @@
 <script>
 import ItemList from '../components/menu/ItemList.vue'
 export default {
-  name: 'MainLayout',
+  name: 'CategoryLayout',
   components: {
     ItemList,
   },
