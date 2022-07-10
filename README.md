@@ -2,6 +2,8 @@
 Разработка производилась на node 17.x
 Для запуска на node 17 используйте команду npm run serve-win (если у вас виндовс)
 Для запуска на node 16 используйте команду npm run dev
+
+## https://n1ikls.github.io/test_frontend_developer/ ссылка на gh-pages
 ## Build Setup
 
 ```bash
