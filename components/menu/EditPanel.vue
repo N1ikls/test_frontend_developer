@@ -60,7 +60,6 @@
         </div>
         <button
           class="card__button"
-          :disabled="!validateCard"
           @click="addElement($event)"
         >
           Добавить товар

@@ -14,6 +14,7 @@
 <script>
 import EditPanel from '../components/menu/EditPanel.vue'
 import ItemList from '../components/menu/ItemList.vue'
+
 export default {
   name: 'IndexPage',
   components: {
