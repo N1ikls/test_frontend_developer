@@ -3,7 +3,7 @@ export default {
   ssr: false,
   target: 'static', // default is 'server'
   router: {
-    base: '/category/'
+    base: '/test_frontend_developer/',
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -21,9 +21,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '@/assets/scss/style.scss',
-  ],
+  css: ['@/assets/scss/style.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -41,5 +39,16 @@ export default {
   modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extends(config, { isDev, isClinet }) {
+      if (isDev && isClinet) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+        })
+      }
+    },
+  },
 }
