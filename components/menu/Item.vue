@@ -53,6 +53,7 @@ export default {
         this.$store.commit('menu/set', ['editing_element', null])
       }
     },
+   
   },
 }
 </script>

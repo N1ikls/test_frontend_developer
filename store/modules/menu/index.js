@@ -1,9 +1,14 @@
-
 import { set } from 'vue'
 export default {
   namespaced: true,
   state: {
     menu: [],
+    values_form: {
+      title: '',
+      link: '',
+      price: '',
+      description: '',
+    },
     editing_element: null,
   },
   mutations: {
@@ -12,6 +17,9 @@ export default {
     },
     setPush(state, value) {
       state.menu.push(value)
+    },
+    setValuesForm(state, [variable, value]) {
+      state.values_form[variable] = value
     },
     setMenu(state, [variable, id, value]) {
       state.menu.forEach((elem, index) => {
@@ -31,6 +39,16 @@ export default {
   getters: {
     menu(state) {
       return state.menu
+    },
+    values_form(state) {
+      return state.values_form
+    },
+    validateCard(state) {
+      return !!(
+        state.values_form.title &&
+        state.values_form.link &&
+        state.values_form.price
+      )
     },
   },
 }
