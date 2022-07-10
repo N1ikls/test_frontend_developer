@@ -1,22 +1,33 @@
+
+import { set } from 'vue'
 export default {
   namespaced: true,
   state: {
-    menu: [
-      {
-        link: '',
-        title: 'dsadsa',
-        description: 'dsaadaadas',
-        price: 230,
-      },
-    ],
+    menu: [],
     editing_element: null,
   },
   mutations: {
     set(state, [variable, value]) {
       state[variable] = value
     },
+    setPush(state, value) {
+      state.menu.push(value)
+    },
+    setMenu(state, [variable, id, value]) {
+      state.menu.forEach((elem, index) => {
+        if (elem.id === id) set(state.menu[index], variable, value)
+      })
+    },
   },
-  action: {},
+  actions: {
+    getlocalStorage({ commit }) {
+      const items = JSON.parse(localStorage.getItem('menu')) || []
+      commit('set', ['menu', items])
+    },
+    updateLocalStorage({ state }) {
+      localStorage.setItem('menu', JSON.stringify(state.menu))
+    },
+  },
   getters: {
     menu(state) {
       return state.menu
