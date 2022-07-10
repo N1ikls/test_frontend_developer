@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{270:function(n,t,e){"use strict";e.r(t);var o={name:"CategoryLayout",components:{}},c=e(45),component=Object(c.a)(o,(function(){return(0,this._self._c)("div")}),[],!1,null,null,null);t.default=component.exports}}]);
