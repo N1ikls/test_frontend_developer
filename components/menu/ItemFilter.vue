@@ -4,13 +4,13 @@
       <li>
         <a>По умолчанию<i class="fa fa-angle-down"></i></a>
         <ul class="submenu">
-          <button :disabled="validateMenu('price')" @click="sortMin">
+          <button @click="sortMin">
             <a>Min</a>
           </button>
-          <button :disabled="validateMenu('price')" @click="sortMax">
+          <button @click="sortMax">
             <a>Max</a>
           </button>
-          <button :disabled="validateMenu('title')" @click="sortTitle">
+          <button @click="sortTitle">
             <a>По названию</a>
           </button>
         </ul>
@@ -33,7 +33,7 @@ function sortTitle(d1, d2) {
 export default {
   name: 'ItemFilter',
   computed: {
-    ...mapGetters('menu', ['menu', 'validateMenu']),
+    ...mapGetters('menu', ['menu']),
   },
   methods: {
     sortMax() {

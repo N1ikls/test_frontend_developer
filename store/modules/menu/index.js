@@ -44,18 +44,23 @@ export default {
       return state.values_form
     },
     validateCard(state) {
-      return !!(
+      if (
         state.values_form.title &&
         state.values_form.link &&
         state.values_form.price
-      )
+      ) {
+        return false
+      } else {
+        return true
+      }
     },
     validateMenu: (getters) => (value) => {
-      return getters.menu.forEach((i) => {
-        if (!i[`${value}`]) {
-          return false
+      const menu = getters.menu.forEach((i) => {
+        if (i[`${value}`] === '') {
+          return true
         }
       })
+      return menu
     },
   },
 }

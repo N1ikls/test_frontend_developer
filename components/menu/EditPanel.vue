@@ -60,6 +60,7 @@
         </div>
         <button
           class="card__button"
+          :disabled="validateCard"
           @click="addElement($event)"
         >
           Добавить товар
@@ -175,6 +176,12 @@ export default {
       this.$store.commit('menu/set', ['editing_element', null])
     },
     addElement() {
+      const obj = {
+        title: '',
+        link: '',
+        price: '',
+        description: '',
+      }
       const elem = {
         id: randomString(12),
         title: this.values_form.title,
@@ -182,10 +189,10 @@ export default {
         link: this.values_form.link,
         description: this.values_form.description,
       }
-      this.$store.commit('menu/setPush', elem)
+      this.menu.push(elem)
       this.update()
       this.$store.commit('menu/set', ['editing_element', elem])
-      this.$store.commit('menu/set', ['values_form', {}])
+      this.$store.commit('menu/set', ['values_form', obj])
     },
   },
 }
