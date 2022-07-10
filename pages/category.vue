@@ -1,15 +1,10 @@
 <template>
-  <div>
-    <ItemList />
-  </div>
+  <div></div>
 </template>
 
 <script>
-import ItemList from '../components/menu/ItemList.vue'
 export default {
   name: 'CategoryLayout',
-  components: {
-    ItemList,
-  },
+  components: {},
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <button class="card__delete icon">
+    <button class="card__delete icon" @click="dellElement(menu.id)">
       <img src="@/assets/delete.svg" alt="" />
     </button>
     <div class="card__img">
@@ -11,18 +11,47 @@
       <div class="card__description">
         {{ menu.description }}
       </div>
-      <div class="card__price">{{ menu.price }}</div>
     </div>
+    <div class="card__price">{{ menu.price }} руб.</div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
   name: 'MenuItem',
   props: {
     menu: {
       type: null,
       default: {},
+    },
+  },
+  computed: {
+    editing_element() {
+      return this.$store.state.menu.editing_element
+    },
+    menus: {
+      get() {
+        return this.$store.state.menu.menu
+      },
+      set(newValue) {
+        this.$store.commit('menu/set', ['menu', newValue])
+        this.update()
+      },
+    },
+  },
+  methods: {
+    dellElement(id) {
+      const indx = id
+      if (indx) {
+        this.menus.forEach((item, i) => {
+          if (item.id === indx) {
+            Vue.delete(this.menus, i)
+          }
+        })
+        this.$store.dispatch('menu/updateLocalStorage')
+        this.$store.commit('menu/set', ['editing_element', null])
+      }
     },
   },
 }
@@ -38,8 +67,12 @@ export default {
   width: 17rem;
   position: relative;
   color: #3f3f3f;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   &__container {
     padding: 15px;
+    flex: 1 1 auto;
   }
   &__img {
     width: 100%;
@@ -60,17 +93,21 @@ export default {
     font-size: 20px;
     line-height: 25px;
     margin-bottom: 15px;
+    word-break: break-word;
   }
   &__description {
     font-weight: 400;
     font-size: 16px;
     margin-bottom: 15px;
     line-height: 20px;
+    word-break: break-word;
   }
   &__price {
     font-weight: 600;
     font-size: 24px;
     line-height: 30px;
+    word-break: break-word;
+    padding: 15px;
   }
   &__delete {
     z-index: 1000;
