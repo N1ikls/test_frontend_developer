@@ -12,7 +12,7 @@
         {{ menu.description }}
       </div>
     </div>
-    <div class="card__price">{{ menu.price }} руб.</div>
+    <div class="card__price">{{ menu.price | priceFormat }} руб.</div>
   </div>
 </template>
 
