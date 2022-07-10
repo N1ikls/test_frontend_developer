@@ -50,5 +50,12 @@ export default {
         state.values_form.price
       )
     },
+    validateMenu: (getters) => (value) => {
+      return getters.menu.forEach((i) => {
+        if (!i[`${value}`]) {
+          return false
+        }
+      })
+    },
   },
 }
